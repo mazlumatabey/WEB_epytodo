@@ -1,0 +1,71 @@
+{% include 'header.html' %}
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="#">EpyTodo</a></nav>
+   <link href="/static/css/bootstrap.css" rel="stylesheet" media="screen">
+   <link href="/static/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+   <link href="/static/css/epytodo_user.css" rel="stylesheet" media="screen">
+   <br>
+   <div class="container">
+      <center>
+      <button type="button" class="btn btn-primary">Welcome {{ user }}</button>
+      <button onclick="signout()" class="btn btn-danger">Signout</button>
+      </center>
+   </div>
+   <div class="login-form">
+      <form method="post">
+         <h2 class="text-center" id="text_central">Add a task</h2>
+         <input id="isUpdate" name="id_modify" type="hidden" value="0">
+         <div class="form-group">
+            <input type="text" id="title" class="form-control" placeholder="Title" required="required">
+         </div>
+         <div class="form-group">
+            <select id="status" class="custom-select" required>
+               <option value="0">Not started</option>
+               <option value="1">In progress</option>
+               <option value="2">Done</option>
+            </select>
+         </div>
+         <div class="form-group">
+            <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
+               <input type="text" id="begin" class="form-control" placeholder="Begin date" readonly>
+               <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+               <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+            </div>
+         </div>
+         <div class="form-group">
+            <div class="input-group date form_datetime" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
+               <input type="text" id="end" class="form-control" placeholder="End date" readonly>
+               <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+               <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+            </div>
+         </div>
+         <div class="form-group">
+            <button type="submit" id="button_submit" class="btn btn-primary btn-block">Add task</button>
+         </div>
+         <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+         <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+      </form>
+   </div>
+   <div class="container">
+      <table id ="mytable" class="table">
+         <thead>
+            <tr>
+               <th scope="col">Task ID</th>
+               <th scope="col">Tile</th>
+               <th scope="col">Begin</th>
+               <th scope="col">End</th>
+               <th scope="col">Status</th>
+               <th scope="col">Modify</th>
+               <th scope="col">Delete</th>
+            </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+   </div>
+</body>
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/static/js/epytodo_user.js"></script>
+</html>
